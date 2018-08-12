@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/vip/!svn/ver/31/viplinux/viplinux
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/vip/!svn/ver/31/viplinux/viplinux/main.cpp
+END
+main.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/vip/!svn/ver/17/viplinux/viplinux/main.h
+END
+viplinux.pro
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/vip/!svn/ver/1/viplinux/viplinux/viplinux.pro
+END
+vportable.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/vip/!svn/ver/30/viplinux/viplinux/vportable.cpp
+END
+vconfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/vip/!svn/ver/31/viplinux/viplinux/vconfig.h
+END

@@ -1,0 +1,29 @@
+#!/usr/bin/expect -f
+
+#set force_conservative 0  ;# set to 1 to force conservative mode even if
+#			  ;# script wasn't run conservatively originally
+#if {$force_conservative} {
+#	set send_slow {1 .1}
+#	proc send {ignore arg} {
+#		sleep .1
+#		exp_send -s -- $arg
+#	}
+#}
+
+set timeout -1
+#spawn telnet localhost 4444
+spawn telnet localhost 4444
+#match_max 100000
+expect -exact "> "
+send "halt\r"
+expect -exact "> "
+send "flash probe 0\r"
+expect -exact "> "
+send "flash erase_sector 0 0 255\r"
+expect -exact "> "
+send "flash write_image /home/josh/workspace/vip/viparm/viparm/viparm.bin\r"
+expect -exact "> "
+send "reset\r"
+expect -exact "> "
+send "exit\r"
+expect eof

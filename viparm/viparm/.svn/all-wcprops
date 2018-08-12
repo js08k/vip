@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/vip/!svn/ver/32/viparm/viparm
+END
+ftdi2232.rules
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/vip/!svn/ver/30/viparm/viparm/ftdi2232.rules
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/vip/!svn/ver/29/viparm/viparm/Makefile
+END
+viparm.pro
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/vip/!svn/ver/29/viparm/viparm/viparm.pro
+END
+vportable.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/vip/!svn/ver/32/viparm/viparm/vportable.c
+END
+eth0.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/vip/!svn/ver/24/viparm/viparm/eth0.c
+END
+vconfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/vip/!svn/ver/30/viparm/viparm/vconfig.h
+END
+program.exp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/vip/!svn/ver/31/viparm/viparm/program.exp
+END
+startup.c
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/vip/!svn/ver/31/viparm/viparm/startup.c
+END
+FreeRTOSConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/vip/!svn/ver/24/viparm/viparm/FreeRTOSConfig.h
+END
+lm3s8962.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/vip/!svn/ver/30/viparm/viparm/lm3s8962.cfg
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/vip/!svn/ver/31/viparm/viparm/main.c
+END
+eth0.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/vip/!svn/ver/24/viparm/viparm/eth0.h
+END
+standalone.ld
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/vip/!svn/ver/24/viparm/viparm/standalone.ld
+END

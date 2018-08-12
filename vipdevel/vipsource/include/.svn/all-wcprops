@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/vip/!svn/ver/32/vipdevel/vipsource/include
+END
+voverlay.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/vip/!svn/ver/12/vipdevel/vipsource/include/voverlay.h
+END
+vmang.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/vmang.h
+END
+vipv4.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/vipv4.h
+END
+varp.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/varp.h
+END
+vfilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vip/!svn/ver/17/vipdevel/vipsource/include/vfilter.h
+END
+vtcp.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/24/vipdevel/vipsource/include/vtcp.h
+END
+vsocket.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vip/!svn/ver/24/vipdevel/vipsource/include/vsocket.h
+END
+vicmp.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/vicmp.h
+END
+vudp.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/vip/!svn/ver/1/vipdevel/vipsource/include/vudp.h
+END
+vrandn.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/vip/!svn/ver/32/vipdevel/vipsource/include/vrandn.h
+END
+taskstack.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/vip/!svn/ver/1/vipdevel/vipsource/include/taskstack.h
+END
+vtypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/vtypes.h
+END
+vstring.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/vstring.h
+END
+vportable.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/vip/!svn/ver/32/vipdevel/vipsource/include/vportable.h
+END
+vheap.h.bak
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/vip/!svn/ver/1/vipdevel/vipsource/include/vheap.h.bak
+END
+vbase.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vip/!svn/ver/28/vipdevel/vipsource/include/vbase.h
+END
+vheap.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vip/!svn/ver/30/vipdevel/vipsource/include/vheap.h
+END

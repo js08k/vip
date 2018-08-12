@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/vip/!svn/ver/1/viplinux/testing/heaptest
+END
+heaptest.pro
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/vip/!svn/ver/1/viplinux/testing/heaptest/heaptest.pro
+END
+tst_heaptest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/vip/!svn/ver/1/viplinux/testing/heaptest/tst_heaptest.cpp
+END

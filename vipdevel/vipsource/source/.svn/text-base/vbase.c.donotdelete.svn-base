@@ -1,0 +1,250 @@
+/************************************
+ *
+ * Virtual IP stack					*
+ * File:	vIPbase.c				*
+ * Author:	Joshua Strickland		*
+ * Date:	November 2010			*
+ * Version:	1.0						*
+ ************************************/
+#include <QByteArray>
+#include <QString>
+#include <QDebug>
+
+#include "vbase.h"
+#include "vmang.h"
+#include "vfilter.h"
+
+#ifdef __linux__
+#include <unistd.h>
+#include <stdio.h>
+#endif
+
+/***************************
+ * Virtual IP includes
+ ***************************/
+// Base includes
+#include "vconfig.h"
+#include "vheap.h"
+#include "vstring.h"
+#include "vportable.h"
+#include "varp.h"
+#include "vipv4.h"
+#include "vtcp.h"
+#include "voverlay.h"
+#include "vicmp.h"
+
+uint32_t vIPStackTime;
+
+/******************************************************************
+ * Constants
+ ******************************************************************/
+// MAC broadcast address
+const hwaddr MAC_Broad = { BROADCASTMAC };
+/******************************************************************
+ * External variables
+ ******************************************************************/
+const hwaddr MAC_Addr = { DEFAULTMAC };
+
+/*!
+    vIPtime
+*/
+void vIPtime( void *pvParameters )
+{
+    (void)pvParameters;
+    vIPStackTime = 0;
+    while(1)	{
+#ifdef __linux__
+        usleep( 1000 );
+#else
+        vTaskDelay( 1 );
+#endif
+        vIPStackTime++;
+    }
+}
+
+/*!
+    void vInitializeBase( void )
+        Initializes the entire Virtual
+     IP stack.
+*/
+void vInitializeBase( void )
+{
+    //	uint8_t dMAC[6] = DEFAULTMAC;
+
+    /* Save the default MAC to ram */
+    //	vmemcpy( MAC_Addr, dMAC, 6 );
+
+    /* Initialize all of the hardware aspect */
+    vInitializeHardware( MAC_Addr );
+}
+
+
+void vPutMACpacket( const hwaddr dest, uint16_t type, uint8_t *ploc )
+{
+    uint16_t datn;
+    switch( type )
+    {
+    case ARPTYPE:
+        datn = 28;
+        break;
+    case IPv4TYPE:
+        datn = hton16( IPv4(ploc)->TotalLength );
+        break;
+    default:
+        datn = 0;
+        break;
+    }
+
+    /* Source MAC address is this device */
+    vmemcpy( &MAC(ploc)->sourc, &MAC_Addr, sizeof( hwaddr ) );
+
+    vmemcpy( &MAC(ploc)->dest, &dest, sizeof( hwaddr ) );
+
+    /* Set the packet type (ARP, IPv4, ... etc ) */
+    MAC(ploc)->type = hton16(type);
+
+    /* Write the packet to the hardware controller and send */
+    writeMAC( ploc, datn + 14 );
+}
+
+/****************************************************************************
+vPutMACpacket:
+    DESCRIPTION
+        This function deals with layer 2 of the communication layer model.
+        It is designed to read an entire packet into memory from the hardware
+        buffers, and then analyze act according to the ethernet frames only
+
+    FUNCTION REQUIRMENTS
+        - Shall return the port corresponding to where the packet is directed, since this
+        is a higher layer function, this requirement shall only be met when vIPnotifyPort has
+        met the requirement.
+                                                    <DEPENDENT ON vIPnotifyPort>
+        - Upon receiving packets destined for addresses other than ones this device possesses
+        the memory shall be freed and 0xFF shall be returned indicating the packet was dropped
+        for unspecified reasons.
+                                                    <PASS>
+        - Shall allocate memory to hold a packet and, upon unavailability of the memory,
+        handle handle the error with care such that the packet will not be dropped because
+        of insufficient memory.
+                                                    <UNKNOWN>
+        - Shall ensure all memory is either freed or shall be freed at a later time, no
+        valid pointers are lost when this function leaves execution.
+                                                    <UNKNOWN>
+ ****************************************************************************/
+void vGetMACpacket( void )
+{
+    tagMACgram macheader;
+    tagIPgram ipv4header;
+    sint32_t datn;
+    uint8_t* ploc = null;
+    uint8_t* temp;
+    tagMACgram testmac;
+    vmemcpy( &testmac, 0, sizeof( tagMACgram ) );
+
+    do
+    {
+        datn = readMAC( (uint8_t *)&macheader, sizeof( tagMACgram ) );
+    }
+    while( memcmp( &macheader, &testmac, sizeof( tagMACgram ) )  == 0 );
+
+    switch( hton16( macheader.type ) )
+    {
+    case ARPTYPE:
+        // Allocate memory for a ARP packet
+        ploc = (uint8_t *)ucalloc( sizeof( tagARPgram ) + sizeof( tagMACgram ) );
+
+        // todo: Verify this MAC header will be expected in the packet
+        vmemcpy( ploc, &macheader, sizeof( tagMACgram ) );
+
+        // Read in the ARP datagram from the hardware
+        readMAC( (uint8_t *)ploc + sizeof( tagMACgram ), sizeof( tagARPgram ) );
+
+        break;
+    case IPv4TYPE:
+        readMAC( (uint8_t *)&ipv4header, sizeof( tagIPgram ) );
+
+        ploc = (uint8_t *)ucalloc( sizeof( tagMACgram ) + hton16( ipv4header.TotalLength ) );
+
+        // todo: Verify this MAC header will be expected in the packet
+        vmemcpy( ploc, &macheader, sizeof( tagMACgram ) );
+
+        vmemcpy( (char *)ploc + sizeof( tagMACgram ), &ipv4header, sizeof( tagIPgram ) );
+
+        readMAC( (uint8_t *)ploc + sizeof( tagMACgram ) + sizeof( tagIPgram ), hton16( ipv4header.TotalLength ) - sizeof( tagIPgram ) );
+
+        break;
+    }
+
+    if( ploc )
+    {
+        vMangQueueRX( ploc, hton16( MAC(ploc)->type ) );
+    }
+    else
+    {
+        if( ploc )
+            ucfree( ploc );
+
+        ploc = null;
+    }
+
+    return;
+
+    ploc = (uint8_t *)ucalloc( RXPAYLOAD + sizeof( tagMACgram ) );
+
+    /* Test the memory allocation */
+    if( ploc )
+    {
+        /* Read the entire packet out of the controller to memy */
+        datn = readMAC( ploc, RXPAYLOAD );
+
+        if( datn > 0 )
+        {
+            temp = (uint8_t *)ucrealloc( ploc, datn + 2 );
+
+            if( temp )
+            {
+                /* Reallocation was successful */
+                ploc = temp;
+            }
+            else
+            {
+                /* Reallocation was not successful */
+                ucfree( ploc );
+
+                return;
+            }
+
+            vMangQueueRX( ploc, hton16( MAC(ploc)->type ) );
+        }
+        else
+        {
+            /* No packet was read */
+            ucfree( ploc );
+
+            ploc = null;
+        }
+    }
+}
+
+/******************************************************************
+ * hton16()
+ * 	used for converting between little-endian data and
+ * big-endian data of a 16 bit number.
+ ******************************************************************/
+uint16_t hton16( uint16_t input )
+{
+    // switch upper byte with lower byte
+    // and return
+    return ( input << 8 | input >> 8 );
+}
+
+/******************************************************************
+ * hton32()
+ * 	used for converting between little-endian data and
+ * big-endian data of a 32 bit number.
+ ******************************************************************/
+uint32_t hton32( uint32_t input )
+{
+    return ( hton16( (uint16_t)( input >> 16) ) |
+             ( hton16( (uint16_t)input ) << 16 ) );
+}

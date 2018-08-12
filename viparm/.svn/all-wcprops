@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/vip/!svn/ver/32/viparm
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/vip/!svn/ver/1/viparm/.project
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/vip/!svn/ver/1/viparm/.cproject
+END
+viparm.pro
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/vip/!svn/ver/24/viparm/viparm.pro
+END

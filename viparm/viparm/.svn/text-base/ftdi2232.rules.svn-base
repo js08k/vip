@@ -1,0 +1,8 @@
+#Place this file in /etc/udev/rules.d/
+#Where "devel" is the group in which the development user's group
+#Upon plugging in the device, this file causes its group and permmission rights to be modified to: -rw-rw-r-- root:devel ttyUSB0
+!="usb", ACTION!="add", SUBSYSTEM!=="usb_device", GOTO="kcontrol_rules_end"
+
+SYSFS{idProduct}=="bcd9", SYSFS{idVendor}=="0403", MODE="664", GROUP="devel"
+
+LABEL="kcontrol_rules_end"

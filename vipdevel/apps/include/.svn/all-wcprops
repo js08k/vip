@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/vip/!svn/ver/31/vipdevel/apps/include
+END
+shell.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/vip/!svn/ver/28/vipdevel/apps/include/shell.h
+END
+telnet.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/vip/!svn/ver/28/vipdevel/apps/include/telnet.h
+END
+httpd.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/vip/!svn/ver/31/vipdevel/apps/include/httpd.h
+END

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/vip/!svn/ver/32/vipdevel/vipsource/source
+END
+vicmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/vicmp.c
+END
+vudp.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/vudp.c
+END
+vsocket.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/vsocket.c
+END
+vrandn.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vip/!svn/ver/32/vipdevel/vipsource/source/vrandn.c
+END
+vbase.c.new
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vip/!svn/ver/1/vipdevel/vipsource/source/vbase.c.new
+END
+taskstack.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vip/!svn/ver/1/vipdevel/vipsource/source/taskstack.c
+END
+vtypes.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/1/vipdevel/vipsource/source/vtypes.c
+END
+vstring.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/vip/!svn/ver/31/vipdevel/vipsource/source/vstring.c
+END
+vbase.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/30/vipdevel/vipsource/source/vbase.c
+END
+vheap.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/vheap.c
+END
+vbase.c.donotdelete
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/vip/!svn/ver/1/vipdevel/vipsource/source/vbase.c.donotdelete
+END
+vmang.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/29/vipdevel/vipsource/source/vmang.c
+END
+vipv4.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/vipv4.c
+END
+varp.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/varp.c
+END
+vfilter.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/vip/!svn/ver/28/vipdevel/vipsource/source/vfilter.c
+END
+vtcp.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/vip/!svn/ver/32/vipdevel/vipsource/source/vtcp.c
+END
+vbase.c.old
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vip/!svn/ver/1/vipdevel/vipsource/source/vbase.c.old
+END

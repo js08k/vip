@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/vip/!svn/ver/32/vipdevel
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/vip/!svn/ver/1/vipdevel/.project
+END
+.cproject
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/vip/!svn/ver/1/vipdevel/.cproject
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/vip/!svn/ver/1/vipdevel/Makefile
+END
+vipdevel.pro
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/vip/!svn/ver/1/vipdevel/vipdevel.pro
+END
