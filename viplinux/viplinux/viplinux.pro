@@ -7,16 +7,15 @@ CONFIG += QT
 QMAKE_CC = /usr/bin/g++
 
 INCLUDEPATH += \
-    ../../vipdevel/vipsource/include \
-    ../../vipdevel/apps/include
+    ../../include/vipsource \
+    ../../include/apps
 
 DEPENDPATH += \
     $${INCLUDEPATH}
 
 LIBS += \
         -lpcap \
-        -L$${OUT_PWD}/.. -lvipsource \
-        -L$${OUT_PWD}/.. -lapps
+        -L$${OUT_PWD}/../../lib -lvipsource -lapps
 
 SOURCES += \
     vportable.cpp \
